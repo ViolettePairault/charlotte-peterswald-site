@@ -15,7 +15,7 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:none;margin:0;padding:0 var(--edge)}
 /* header, thin, top, evenly spread */
 header.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:background .4s,border-color .4s}
-header.top[data-hero]{background:transparent;border-color:transparent}
+header.top[data-hero]{background:transparent;border-color:transparent;position:fixed;left:0;right:0}
 header.top[data-hero] nav.menu a{color:#fff}
 header.top[data-hero] .hamb{color:#fff}
 header.top[data-hero].scrolled{background:rgba(255,255,255,.92);border-color:var(--line)}
