@@ -1337,7 +1337,7 @@ window.cpSubmit = function (data) {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
-  }).then(function (r) { return { ok: r.ok }; }).catch(function () { return { ok: false }; });
+  }).then(function (r) { if (r.ok && data.formType !== "Newsletter subscribe" && window.gtag) { window.gtag('event', 'conversion', {'send_to': 'AW-372919081/Wzd6CIaioeAcEKmW6bEB'}); } return { ok: r.ok }; }).catch(function () { return { ok: false }; });
 };
 
 /* Contact page form */
