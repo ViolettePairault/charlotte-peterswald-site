@@ -547,7 +547,9 @@ function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmoun
 })();
 </script><script>(function(){try{
 const {
-  useState
+  useState,
+   useEffect,
+   useRef
 } = React;
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -901,6 +903,7 @@ function RentTool({
   const [baths, setBaths] = useState(2);
   const [cars, setCars] = useState(1);
   const [unlocked, setUnlocked] = useState(() => !!readSharedLead());
+   const startedUnlockedRef = useRef(unlocked);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -910,7 +913,31 @@ function RentTool({
     baths,
     cars
   });
-  const [rentOverride, setRentOverride] = useState(null);
+useEffect(() => {
+     if (!startedUnlockedRef.current) return;
+     const NOTIFY_KEY = "cp_notified_pm";
+     if (sessionStorage.getItem(NOTIFY_KEY)) return;
+     const lead = readSharedLead();
+     if (!lead || !lead.name) return;
+     sessionStorage.setItem(NOTIFY_KEY, "1");
+     try {
+            onLeadCapture && onLeadCapture({
+                     name: lead.name,
+                     phone: lead.phone,
+                     email: lead.email,
+                     address: address.trim(),
+                     suburb,
+                     beds,
+                     baths,
+                     rentLow: est ? fmt(est.low) : "",
+                     rentHigh: est ? fmt(est.high) : "",
+                     returning: true
+            });
+     } catch (e) {
+            console.error(e);
+     }
+}, []);
+   const [rentOverride, setRentOverride] = useState(null);
   const weeklyRent = rentOverride != null ? rentOverride : est ? est.mid : 0;
 
   // fees
@@ -944,6 +971,7 @@ function RentTool({
     }
     setRentOverride(null);
     setUnlocked(true);
+       sessionStorage.setItem("cp_notified_pm", "1");
     saveSharedLead({
       name,
       phone,
@@ -1315,7 +1343,7 @@ if (_r) {
       onLeadCapture: l => {
         try {
           if (window.cpSubmit) window.cpSubmit(Object.assign({
-            formType: "Rent appraisal"
+            formType: l.returning ? "Rent appraisal (returning visitor)" : "Rent appraisal"
           }, l));
         } catch (e) {}
       }
