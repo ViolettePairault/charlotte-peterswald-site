@@ -555,7 +555,9 @@ function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmoun
 })();
 </script><script>(function(){try{
 const {
-  useState
+  useState,
+   useEffect,
+   useRef
 } = React;
 
 /* Investor & Developer Tool — Buying page. Income/Yield + Residual Land,
@@ -947,6 +949,7 @@ function ResidualLand() {
 function InvestorTool() {
   const [method, setMethod] = useState(0);
   const [unlocked, setUnlocked] = useState(() => !!readSharedLead());
+   const startedUnlockedRef = useRef(unlocked);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -958,7 +961,23 @@ function InvestorTool() {
     label: "Residual Land",
     sub: "Development sites"
   }];
-  function submitDetails() {
+useEffect(() => {
+     if (!startedUnlockedRef.current) return;
+     const NOTIFY_KEY = "cp_notified_investor";
+     if (sessionStorage.getItem(NOTIFY_KEY)) return;
+     const lead = readSharedLead();
+     if (!lead || !lead.name) return;
+     sessionStorage.setItem(NOTIFY_KEY, "1");
+     try {
+            if (window.cpSubmit) window.cpSubmit({
+                     formType: "Investor tool access (returning visitor)",
+                     name: lead.name,
+                     phone: lead.phone,
+                     email: lead.email
+            });
+     } catch (e) {}
+}, []);
+   function submitDetails() {
     if (!name.trim()) {
       setErr("Please enter your name.");
       return;
@@ -973,7 +992,8 @@ function InvestorTool() {
       phone,
       email
     });
-    try {
+    sessionStorage.setItem("cp_notified_investor", "1");
+        try {
       if (window.cpSubmit) window.cpSubmit({
         formType: "Investor tool access",
         name: name,
