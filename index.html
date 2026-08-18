@@ -22,14 +22,12 @@ header.top[data-hero].scrolled{background:rgba(255,255,255,.92);border-color:var
 header.top[data-hero].scrolled nav.menu a{color:var(--ink)}
 header.top[data-hero].scrolled .hamb{color:var(--ink)}
 header.top .bar{max-width:none;width:100%;margin:0;padding:24px var(--edge);display:flex;align-items:center;gap:40px}
-header.top[data-home] .logo{opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .4s;pointer-events:none}
-header.top[data-hero]:not([data-home]) .logo{color:#fff;transition:color .4s}
-header.top[data-hero]:not([data-home]) .logo .tag{color:rgba(255,255,255,.8)}
-header.top[data-hero]:not([data-home]).scrolled .logo{color:var(--ink)}
-header.top[data-hero]:not([data-home]).scrolled .logo .tag{color:var(--mut)}
-header.top[data-home].scrolled .logo{opacity:1;transform:none;pointer-events:auto}
- header.top[data-hero]:not([data-home]) .logo-img{filter:brightness(0) invert(1);transition:filter .4s}
- header.top[data-hero]:not([data-home]).scrolled .logo-img{filter:none}
+header.top[data-hero] .logo{color:#fff;transition:color .4s}
+header.top[data-hero] .logo .tag{color:rgba(255,255,255,.8)}
+header.top[data-hero].scrolled .logo{color:var(--ink)}
+header.top[data-hero].scrolled .logo .tag{color:var(--mut)}
+ header.top[data-hero] .logo-img{filter:brightness(0) invert(1);transition:filter .4s}
+ header.top[data-hero].scrolled .logo-img{filter:none}
 .logo{display:inline-block;width:fit-content;font-family:var(--serif);font-size:clamp(22px,2.2vw,34px);font-weight:600;letter-spacing:-.005em;line-height:1.05;white-space:nowrap}
  .logo-img{display:block;height:clamp(30px,2.8vw,42px);width:auto}
 .logo .tag{display:block;width:100%;font-family:var(--serif);font-style:italic;font-size:clamp(7px,.72vw,11px);letter-spacing:0;text-transform:none;color:var(--mut);margin-top:7px;font-weight:400;white-space:nowrap;text-align:justify;-moz-text-align-last:justify;text-align-last:justify}
