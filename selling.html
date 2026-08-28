@@ -282,7 +282,7 @@ footer .fine{border-top:1px solid var(--line);padding-top:26px;font-size:12px;co
   <div><div class="sub">Subscribe to hear about new listings, market insight and off-market opportunities across Sydney.</div>
    <div class="news-in"><input placeholder="Email address*"><button onclick="return false">&#8594;</button></div></div>
   <div class="off"><h4>Office</h4><p>Level 32, 101 Miller Street<br>North Sydney NSW 2060</p>
-   <h4 style="margin-top:18px">Phone</h4><p><a href="tel:+61407742120" style="color:var(--mut)">+61 407 742 120</a></p>
+   <h4 style="margin-top:18px">Phone</h4><p><a href="tel:+61299698600" style="color:var(--mut)">(02) 9969 8600</a></p>
    <h4 style="margin-top:18px">Email</h4><p><a href="mailto:charlotte@charlottepeterswald.sydney" style="color:var(--mut)">charlotte@charlottepeterswald.sydney</a></p></div>
   <div class="off"><h4>Explore</h4><p style="display:flex;flex-direction:column;gap:8px"><a href="selling.html" style="color:var(--mut)">Selling</a><a href="buying.html" style="color:var(--mut)">Buying</a><a href="management.html" style="color:var(--mut)">Management</a><a href="tools.html" style="color:var(--mut)">Tools</a></p></div>
   <div class="off"><h4>Follow us</h4><p style="display:flex;flex-direction:column;gap:8px"><a href="https://www.instagram.com/charlottepeterswald.christies/" target="_blank" rel="noopener" style="color:var(--mut)">Instagram</a><a href="https://www.facebook.com/charlottepeterswald.sydney/" target="_blank" rel="noopener" style="color:var(--mut)">Facebook</a><a href="https://www.linkedin.com/in/charlotte-peterswald-a56a2889/" target="_blank" rel="noopener" style="color:var(--mut)">LinkedIn</a></p></div>
@@ -1532,8 +1532,8 @@ document.addEventListener("DOMContentLoaded", function () {
       window.cpSubmit({ formType: "Contact enquiry", name: name, phone: phone, email: email, message: msg ? msg.value.trim() : "" })
         .then(function (r) {
           if (r.ok) { note.style.color = "#1A1A1A"; note.textContent = "Thank you. We will be in touch shortly."; ins.forEach(function(i){i.value="";}); if (msg) msg.value = ""; }
-          else if (r.noEndpoint) { note.style.color = "#B45309"; note.textContent = "Form not yet connected. Please call +61 407 742 120."; }
-          else { note.style.color = "#B91C1C"; note.textContent = "Something went wrong. Please call +61 407 742 120."; }
+          else if (r.noEndpoint) { note.style.color = "#B45309"; note.textContent = "Form not yet connected. Please call (02) 9969 8600."; }
+          else { note.style.color = "#B91C1C"; note.textContent = "Something went wrong. Please call (02) 9969 8600."; }
         });
     });
   }
