@@ -899,9 +899,9 @@ function RentTool({
   onLeadCapture
 }) {
   const [address, setAddress] = useState("");
-  const [subQuery, setSubQuery] = useState("Bondi");
+  const [subQuery, setSubQuery] = useState("");
   const [subOpen, setSubOpen] = useState(false);
-  const [suburb, setSuburb] = useState("Bondi");
+  const [suburb, setSuburb] = useState("");
   const [beds, setBeds] = useState(3);
   const [baths, setBaths] = useState(2);
   const [cars, setCars] = useState(1);
@@ -956,7 +956,7 @@ useEffect(() => {
   const validEmail = email.trim() === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
   const submit = () => {
     setTouched(true);
-    if (!name.trim() || !validPhone || !validEmail) return;
+    if (!suburb.trim() || !name.trim() || !validPhone || !validEmail) return;
     try {
       onLeadCapture && onLeadCapture({
         name: name.trim(),
@@ -1091,12 +1091,12 @@ useEffect(() => {
       fontSize: 12.5,
       color: "#8A867C"
     }
-  }, "Using ", /*#__PURE__*/React.createElement("span", {
+  }, suburb ? /*#__PURE__*/React.createElement(React.Fragment, null, "Using ", /*#__PURE__*/React.createElement("span", {
     style: {
       fontWeight: 600,
       color: "#1A1A1A"
     }
-  }, suburb), " median."))), /*#__PURE__*/React.createElement(Pills, {
+  }, suburb), " median.") : "Select your suburb above to see suburb-based pricing."))), /*#__PURE__*/React.createElement(Pills, {
     label: "Bedrooms",
     options: [1, 2, 3, 4, 5],
     value: beds,
@@ -1194,13 +1194,13 @@ useEffect(() => {
     value: email,
     onChange: e => setEmail(e.target.value),
     onKeyDown: e => e.key === "Enter" && submit()
-  }), touched && (!name.trim() || !validPhone || !validEmail) && /*#__PURE__*/React.createElement("div", {
+  }), touched && (!suburb.trim() || !name.trim() || !validPhone || !validEmail) && /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: "#B91C1C",
       marginBottom: 8
     }
-  }, !name.trim() ? "Please enter your name." : !validPhone ? "Please enter a valid Australian phone number." : "That email doesn't look right. Fix it or leave it blank."), /*#__PURE__*/React.createElement("button", {
+  }, !suburb.trim() ? "Please select your suburb above before continuing." : !name.trim() ? "Please enter your name." : !validPhone ? "Please enter a valid Australian phone number." : "That email doesn't look right. Fix it or leave it blank."), /*#__PURE__*/React.createElement("button", {
     onClick: submit,
     style: {
       width: "100%",
