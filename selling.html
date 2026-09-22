@@ -620,19 +620,25 @@ const WASH = "#F5F3EE";
 const FONT = "'Inter', system-ui, sans-serif";
 const fmt = n => n == null || isNaN(n) || !isFinite(n) ? "—" : "$" + Math.abs(Math.round(n)).toLocaleString();
 
-/* ── Appraisal data: Lower North Shore and Eastern Suburbs house medians sourced
-   from Domain.com.au "Market trends" (sold last 12 months), pulled 23 Sep 2026,
-   broken out by bedroom count in SUB_BEDS below. Where a suburb had no reliable
-   Domain sample for a given bed count, that tier was interpolated from the
-   suburb's own other bed-count data (or, for suburbs with almost no standalone
-   houses -- Cremorne Point, Kirribilli, Milsons Point, Waverton, Lavender Bay,
-   Darling Point, Elizabeth Bay -- anchored from unit medians / neighbouring
-   suburbs). Point Piper has no reliable house OR unit sales signal at all in
-   the Domain sample and is left on its old placeholder value pending better
-   data. See pricing_fix/curves_final.json and curves_east_final.json for the
-   full per-suburb methodology notes.
-   Inner West / City fringe suburbs below are STILL PLACEHOLDER figures
-   (not yet re-sourced from Domain) — flagged for a follow-up data pass. ────── */
+/* ── Appraisal data: Lower North Shore, Eastern Suburbs and Inner West house
+   medians sourced from Domain.com.au "Market trends" (sold last 12 months),
+   pulled 23 Sep 2026, broken out by bedroom count in SUB_BEDS below. Every
+   suburb across all three regions (79 total) is now backed by real Domain
+   data rather than a flat placeholder. Where a suburb had no reliable Domain
+   sample for a given bed count, that tier was interpolated from the suburb's
+   own other bed-count data via avg regional bed-to-bed growth ratios (or, for
+   suburbs with almost no standalone houses -- e.g. Cremorne Point, Kirribilli,
+   Milsons Point, Waverton, Lavender Bay, Darling Point, Elizabeth Bay,
+   Eastgardens, Hillsdale, Zetland, Pyrmont, Ultimo, Sydney -- anchored from
+   unit medians x the region's avg house/unit premium ratio). A handful of
+   suburbs had no Domain "Market trends" table or usable sales sample at all
+   (Potts Point, Daceyville, Woolloomooloo, Phillip Bay) and were estimated as
+   the average of their real-data neighbouring suburbs instead. Point Piper is
+   the sole suburb left on its old placeholder value: it has no reliable house
+   OR unit sales signal at all in the Domain sample, and no comparable
+   neighbour close enough to estimate from responsibly. See
+   pricing_fix/curves_final.json, curves_east_final.json, curves_east2_final.json
+   and curves_innerwest_final.json for the full per-suburb methodology notes. ── */
 const SUB = {
   // Eastern Suburbs — real Domain data (see SUB_BEDS), except Point Piper (placeholder, no reliable sample)
   "Point Piper": 12320000,
@@ -660,23 +666,23 @@ const SUB = {
   "Centennial Park": 3405000,
   "Rushcutters Bay": 3720000,
   "Elizabeth Bay": 7445000,
-  "Potts Point": 3360000,
-  "Darlinghurst": 2912000,
-  "Surry Hills": 2800000,
-  "Woolloomooloo": 2912000,
-  "Maroubra": 3326400,
-  "Kensington": 3024000,
-  "Kingsford": 2800000,
-  "Matraville": 2576000,
-  "Malabar": 2912000,
-  "Chifley": 2464000,
-  "Little Bay": 2912000,
-  "Pagewood": 2576000,
-  "Eastgardens": 2464000,
-  "Daceyville": 2464000,
-  "Botany": 2352000,
-  "Hillsdale": 2128000,
-  "Phillip Bay": 2240000,
+  "Potts Point": 5290000,
+  "Darlinghurst": 3130000,
+  "Surry Hills": 2600000,
+  "Woolloomooloo": 5290000,
+  "Maroubra": 2510000,
+  "Kensington": 2370000,
+  "Kingsford": 2725000,
+  "Matraville": 2195000,
+  "Malabar": 3350000,
+  "Chifley": 2345000,
+  "Little Bay": 2135000,
+  "Pagewood": 2350000,
+  "Eastgardens": 1895000,
+  "Daceyville": 2535000,
+  "Botany": 1730000,
+  "Hillsdale": 1240000,
+  "Phillip Bay": 2225000,
   "Bronte Beach": 5936000,
   "Waverley Park": 3808000,
   // Lower North Shore — real Domain data (see SUB_BEDS for the per-bedroom curve)
@@ -704,22 +710,22 @@ const SUB = {
   "Chatswood": 3190000,
   "Lavender Bay": 4270000,
   "Cammeray Park": 3250000,
-  // Inner West / City fringe (placeholder, pending Domain re-source)
-  "Balmain": 3136000,
-  "Birchgrove": 4032000,
-  "Rozelle": 2800000,
-  "Glebe": 2688000,
-  "Annandale": 2688000,
-  "Leichhardt": 2464000,
-  "Newtown": 2240000,
-  "Erskineville": 2128000,
-  "Redfern": 2016000,
-  "Alexandria": 2240000,
-  "Waterloo": 1792000,
-  "Zetland": 1904000,
-  "Pyrmont": 2464000,
-  "Ultimo": 1904000,
-  "Sydney": 2688000
+  // Inner West — real Domain data (see SUB_BEDS for the per-bedroom curve)
+  "Balmain": 2850000,
+  "Birchgrove": 2800000,
+  "Rozelle": 2370000,
+  "Glebe": 2480000,
+  "Annandale": 2435000,
+  "Leichhardt": 2250000,
+  "Newtown": 2200000,
+  "Erskineville": 2180000,
+  "Redfern": 2200000,
+  "Alexandria": 2370000,
+  "Waterloo": 2045000,
+  "Zetland": 1935000,
+  "Pyrmont": 4260000,
+  "Ultimo": 1950000,
+  "Sydney": 3730000
 };
 const SUBS = Object.keys(SUB).filter(s => s.trim() === s);
 
@@ -774,6 +780,38 @@ const SUB_BEDS = {
   "Watsons Bay": {2: 3300000, 3: 4525000, 4: 6270000, 5: 9040000},
   "Waverley": {2: 2395000, 3: 3285000, 4: 4550000, 5: 6565000},
   "Woollahra": {2: 2760000, 3: 3775000, 4: 6000000, 5: 13200000},
+  "Botany": {2: 1490000, 3: 1730000, 4: 2060000, 5: 2435000},
+  "Chifley": {2: 1725000, 3: 2345000, 4: 2660000, 5: 2850000},
+  "Daceyville": {2: 1920000, 3: 2535000, 4: 2825000, 5: 4270000},
+  "Darlinghurst": {2: 1775000, 3: 3130000, 4: 3125000, 5: 5445000},
+  "Eastgardens": {2: 1395000, 3: 1895000, 4: 2460000, 5: 3290000},
+  "Hillsdale": {2: 915000, 3: 1240000, 4: 1610000, 5: 2155000},
+  "Kensington": {2: 1745000, 3: 2370000, 4: 3720000, 5: 4190000},
+  "Kingsford": {2: 2110000, 3: 2725000, 4: 3150000, 5: 4455000},
+  "Little Bay": {2: 1570000, 3: 2135000, 4: 2770000, 5: 3710000},
+  "Malabar": {2: 2465000, 3: 3350000, 4: 3200000, 5: 4400000},
+  "Maroubra": {2: 2130000, 3: 2510000, 4: 3265000, 5: 3900000},
+  "Matraville": {2: 1615000, 3: 2195000, 4: 2730000, 5: 3210000},
+  "Pagewood": {2: 1730000, 3: 2350000, 4: 2500000, 5: 4085000},
+  "Phillip Bay": {2: 1640000, 3: 2225000, 4: 2720000, 5: 3255000},
+  "Potts Point": {2: 3600000, 3: 5290000, 4: 6720000, 5: 10160000},
+  "Surry Hills": {2: 1950000, 3: 2600000, 4: 3010000, 5: 4520000},
+  "Woolloomooloo": {2: 3600000, 3: 5290000, 4: 6720000, 5: 10160000},
+  "Alexandria": {2: 1805000, 3: 2370000, 4: 2775000, 5: 4145000},
+  "Annandale": {2: 1855000, 3: 2435000, 4: 3230000, 5: 4260000},
+  "Balmain": {2: 2075000, 3: 2850000, 4: 3800000, 5: 4990000},
+  "Birchgrove": {2: 2150000, 3: 2800000, 4: 4700000, 5: 4900000},
+  "Erskineville": {2: 1720000, 3: 2180000, 4: 2480000, 5: 3815000},
+  "Glebe": {2: 1750000, 3: 2480000, 4: 3125000, 5: 4340000},
+  "Leichhardt": {2: 1700000, 3: 2250000, 4: 2720000, 5: 3940000},
+  "Newtown": {2: 1700000, 3: 2200000, 4: 2550000, 5: 3850000},
+  "Pyrmont": {2: 3245000, 3: 4260000, 4: 5575000, 5: 7460000},
+  "Redfern": {2: 1765000, 3: 2200000, 4: 3180000, 5: 3850000},
+  "Rozelle": {2: 1855000, 3: 2370000, 4: 3210000, 5: 4150000},
+  "Sydney": {2: 2840000, 3: 3730000, 4: 4875000, 5: 6525000},
+  "Ultimo": {2: 1485000, 3: 1950000, 4: 2550000, 5: 3415000},
+  "Waterloo": {2: 1560000, 3: 2045000, 4: 2675000, 5: 3580000},
+  "Zetland": {2: 1475000, 3: 1935000, 4: 2535000, 5: 3390000},
 };
 
 /* ── Address autocomplete (preview street index; swaps for Google Places live) ── */

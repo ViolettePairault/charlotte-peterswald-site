@@ -1,0 +1,19 @@
+{
+  "Darlinghurst": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios",
+  "Surry Hills": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios",
+  "Woolloomooloo": "no usable house sales signal (only unit1/unit2, no unit3); averaged from neighboring suburbs ['Darlinghurst', 'Elizabeth Bay']",
+  "Maroubra": "real Domain data",
+  "Kensington": "real Domain data; interpolated missing tiers from own [3, 4, 5] via avg growth ratios",
+  "Kingsford": "real Domain data",
+  "Matraville": "real Domain data; interpolated missing tiers from own [3, 4, 5] via avg growth ratios",
+  "Malabar": "real Domain data; interpolated missing tiers from own [3, 4, 5] via avg growth ratios",
+  "Chifley": "real Domain data; interpolated missing tiers from own [3, 4, 5] via avg growth ratios",
+  "Little Bay": "no 3bd sample; anchored from own 4bd real data via avg growth ratios",
+  "Pagewood": "real Domain data; interpolated missing tiers from own [3, 4] via avg growth ratios",
+  "Eastgardens": "no house sales data; anchored from unit 3bd median (1,319,800) x avg house/unit premium 1.434",
+  "Botany": "real Domain data",
+  "Hillsdale": "no house sales data; anchored from unit 3bd median (865,000) x avg house/unit premium 1.434",
+  "Potts Point": "no usable sales signal (no Market trends table); averaged from neighboring suburbs ['Darlinghurst', 'Woolloomooloo', 'Elizabeth Bay']",
+  "Daceyville": "no usable sales signal; averaged from neighboring suburbs ['Kingsford', 'Pagewood']",
+  "Phillip Bay": "no usable sales signal; averaged from neighboring suburbs ['Chifley', 'Matraville', 'Little Bay']"
+}

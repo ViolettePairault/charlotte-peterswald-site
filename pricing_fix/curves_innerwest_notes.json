@@ -1,0 +1,17 @@
+{
+  "Erskineville": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Redfern": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Alexandria": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Waterloo": "no 3bd sample; anchored from own 2bd real data via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Zetland": "no house sales data; anchored from unit 3bd median (1,500,000) x avg house/unit premium 1.292 (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Pyrmont": "no house sales data; anchored from unit 3bd median (3,300,000) x avg house/unit premium 1.292 (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Ultimo": "no house sales data; anchored from unit 3bd median (1,510,000) x avg house/unit premium 1.292 (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Sydney": "no house sales data; anchored from unit 3bd median (2,886,500) x avg house/unit premium 1.292 (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Balmain": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Birchgrove": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Rozelle": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Glebe": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Annandale": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Leichhardt": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)",
+  "Newtown": "real Domain data; interpolated missing tiers from own [2, 3, 4] via avg growth ratios (4->5 ratio borrowed from Eastern Suburbs avg 1.339, no Inner West 5bd house sales recorded)"
+}
