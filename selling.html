@@ -620,46 +620,46 @@ const WASH = "#F5F3EE";
 const FONT = "'Inter', system-ui, sans-serif";
 const fmt = n => n == null || isNaN(n) || !isFinite(n) ? "—" : "$" + Math.abs(Math.round(n)).toLocaleString();
 
-/* ── Appraisal data: indicative house medians, Sydney East + Lower North Shore.
-   Cross-referenced to public suburb data, early-mid 2026. Indicative only;
-   Charlotte to confirm before launch. All values editable below. ─────────── */
-/* ── Appraisal data: Lower North Shore house medians sourced from Domain.com.au
-   "Market trends" (sold last 12 months), pulled 23 Sep 2026, broken out by
-   bedroom count in SUB_BEDS below. Where a suburb had no reliable Domain sample
-   for a given bed count, that tier was interpolated from the suburb's own
-   other bed-count data (or, for suburbs with almost no standalone houses —
-   Cremorne Point, Kirribilli, Milsons Point, Waverton, Lavender Bay — anchored
-   from unit medians / neighbouring suburbs). See pricing_fix/curves_final.json
-   for the full per-suburb methodology notes.
-   Eastern Suburbs and Inner West suburbs below are STILL PLACEHOLDER figures
+/* ── Appraisal data: Lower North Shore and Eastern Suburbs house medians sourced
+   from Domain.com.au "Market trends" (sold last 12 months), pulled 23 Sep 2026,
+   broken out by bedroom count in SUB_BEDS below. Where a suburb had no reliable
+   Domain sample for a given bed count, that tier was interpolated from the
+   suburb's own other bed-count data (or, for suburbs with almost no standalone
+   houses -- Cremorne Point, Kirribilli, Milsons Point, Waverton, Lavender Bay,
+   Darling Point, Elizabeth Bay -- anchored from unit medians / neighbouring
+   suburbs). Point Piper has no reliable house OR unit sales signal at all in
+   the Domain sample and is left on its old placeholder value pending better
+   data. See pricing_fix/curves_final.json and curves_east_final.json for the
+   full per-suburb methodology notes.
+   Inner West / City fringe suburbs below are STILL PLACEHOLDER figures
    (not yet re-sourced from Domain) — flagged for a follow-up data pass. ────── */
 const SUB = {
-  // Eastern Suburbs — prestige (placeholder, pending Domain re-source)
+  // Eastern Suburbs — real Domain data (see SUB_BEDS), except Point Piper (placeholder, no reliable sample)
   "Point Piper": 12320000,
-  "Bellevue Hill": 10640000,
-  "Vaucluse": 10080000,
-  "Darling Point": 8400000,
-  "Double Bay": 7840000,
-  "Rose Bay": 7840000,
-  "Watsons Bay": 7840000,
-  "Tamarama": 7280000,
-  "Dover Heights": 6720000,
-  "Bronte": 5936000,
-  "Woollahra": 5488000,
-  "Clovelly": 5040000,
-  "South Coogee": 5040000,
-  "Queens Park": 4704000,
-  "North Bondi": 4704000,
-  "Coogee": 5600000,
-  "Bondi Beach": 4592000,
-  "Bondi": 4312000,
-  "Paddington": 4144000,
-  "Randwick": 4155200,
-  "Waverley": 3808000,
-  "Bondi Junction": 3584000,
-  "Centennial Park": 6160000,
-  "Rushcutters Bay": 3808000,
-  "Elizabeth Bay": 3584000,
+  "Bellevue Hill": 6860000,
+  "Vaucluse": 4525000,
+  "Darling Point": 5880000,
+  "Double Bay": 5865000,
+  "Rose Bay": 3850000,
+  "Watsons Bay": 4525000,
+  "Tamarama": 4480000,
+  "Dover Heights": 5285000,
+  "Bronte": 4910000,
+  "Woollahra": 3775000,
+  "Clovelly": 5030000,
+  "South Coogee": 3160000,
+  "Queens Park": 3715000,
+  "North Bondi": 5310000,
+  "Coogee": 3200000,
+  "Bondi Beach": 3870000,
+  "Bondi": 4050000,
+  "Paddington": 3720000,
+  "Randwick": 3110000,
+  "Waverley": 3285000,
+  "Bondi Junction": 2725000,
+  "Centennial Park": 3405000,
+  "Rushcutters Bay": 3720000,
+  "Elizabeth Bay": 7445000,
   "Potts Point": 3360000,
   "Darlinghurst": 2912000,
   "Surry Hills": 2800000,
@@ -750,6 +750,30 @@ const SUB_BEDS = {
   "Waverton": {2: 1975000, 3: 2665000, 4: 3410000, 5: 4395000},
   "Willoughby": {2: 2260000, 3: 3045000, 4: 4200000, 5: 4710000},
   "Wollstonecraft": {2: 1655000, 3: 2235000, 4: 2860000, 5: 3685000},
+  "Bellevue Hill": {2: 5000000, 3: 6860000, 4: 9500000, 5: 13000000},
+  "Bondi": {2: 2955000, 3: 4050000, 4: 5200000, 5: 8090000},
+  "Bondi Beach": {2: 2825000, 3: 3870000, 4: 4925000, 5: 7735000},
+  "Bondi Junction": {2: 2250000, 3: 2725000, 4: 3800000, 5: 5445000},
+  "Bronte": {2: 3580000, 3: 4910000, 4: 5950000, 5: 9810000},
+  "Centennial Park": {2: 2485000, 3: 3405000, 4: 4720000, 5: 6805000},
+  "Clovelly": {2: 3670000, 3: 5030000, 4: 6650000, 5: 10050000},
+  "Coogee": {2: 2335000, 3: 3200000, 4: 4950000, 5: 7280000},
+  "Darling Point": {2: 4290000, 3: 5880000, 4: 8145000, 5: 11745000},
+  "Double Bay": {2: 4280000, 3: 5865000, 4: 8125000, 5: 11720000},
+  "Dover Heights": {2: 3855000, 3: 5285000, 4: 7320000, 5: 6725000},
+  "Elizabeth Bay": {2: 5430000, 3: 7445000, 4: 10315000, 5: 14880000},
+  "North Bondi": {2: 3675000, 3: 5310000, 4: 5025000, 5: 7300000},
+  "Paddington": {2: 2455000, 3: 3720000, 4: 5290000, 5: 7430000},
+  "Queens Park": {2: 2710000, 3: 3715000, 4: 4700000, 5: 7420000},
+  "Randwick": {2: 2360000, 3: 3110000, 4: 4300000, 5: 5065000},
+  "Rose Bay": {2: 2810000, 3: 3850000, 4: 6550000, 5: 7690000},
+  "Rushcutters Bay": {2: 2715000, 3: 3720000, 4: 5155000, 5: 7430000},
+  "South Coogee": {2: 2305000, 3: 3160000, 4: 4710000, 5: 6210000},
+  "Tamarama": {2: 3265000, 3: 4480000, 4: 6205000, 5: 8950000},
+  "Vaucluse": {2: 3300000, 3: 4525000, 4: 7080000, 5: 11550000},
+  "Watsons Bay": {2: 3300000, 3: 4525000, 4: 6270000, 5: 9040000},
+  "Waverley": {2: 2395000, 3: 3285000, 4: 4550000, 5: 6565000},
+  "Woollahra": {2: 2760000, 3: 3775000, 4: 6000000, 5: 13200000},
 };
 
 /* ── Address autocomplete (preview street index; swaps for Google Places live) ── */
