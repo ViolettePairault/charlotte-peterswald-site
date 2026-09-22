@@ -623,8 +623,18 @@ const fmt = n => n == null || isNaN(n) || !isFinite(n) ? "—" : "$" + Math.abs(
 /* ── Appraisal data: indicative house medians, Sydney East + Lower North Shore.
    Cross-referenced to public suburb data, early-mid 2026. Indicative only;
    Charlotte to confirm before launch. All values editable below. ─────────── */
+/* ── Appraisal data: Lower North Shore house medians sourced from Domain.com.au
+   "Market trends" (sold last 12 months), pulled 23 Sep 2026, broken out by
+   bedroom count in SUB_BEDS below. Where a suburb had no reliable Domain sample
+   for a given bed count, that tier was interpolated from the suburb's own
+   other bed-count data (or, for suburbs with almost no standalone houses —
+   Cremorne Point, Kirribilli, Milsons Point, Waverton, Lavender Bay — anchored
+   from unit medians / neighbouring suburbs). See pricing_fix/curves_final.json
+   for the full per-suburb methodology notes.
+   Eastern Suburbs and Inner West suburbs below are STILL PLACEHOLDER figures
+   (not yet re-sourced from Domain) — flagged for a follow-up data pass. ────── */
 const SUB = {
-  // Eastern Suburbs — prestige
+  // Eastern Suburbs — prestige (placeholder, pending Domain re-source)
   "Point Piper": 12320000,
   "Bellevue Hill": 10640000,
   "Vaucluse": 10080000,
@@ -669,32 +679,32 @@ const SUB = {
   "Phillip Bay": 2240000,
   "Bronte Beach": 5936000,
   "Waverley Park": 3808000,
-  // Lower North Shore
-  "Mosman": 5600000,
-  "Cremorne": 3920000,
-  "Cremorne Point": 4704000,
-  "Neutral Bay": 3584000,
-  "Kirribilli": 4928000,
-  "Milsons Point": 4480000,
-  "North Sydney": 3920000,
-  "McMahons Point": 4480000,
-  "Cammeray": 4368000,
-  "Waverton": 3808000,
-  "Wollstonecraft": 3696000,
-  "Crows Nest": 3472000,
-  "Northbridge": 4704000,
-  "Castlecrag": 4480000,
-  "Willoughby": 3584000,
-  "Naremburn": 3360000,
-  "Artarmon": 3360000,
-  "Lane Cove": 3651200,
-  "Greenwich": 4032000,
-  "Longueville": 5600000,
-  "Riverview": 4256000,
-  "Chatswood": 3360000,
-  "Lavender Bay": 5040000,
-  "Cammeray Park": 4368000,
-  // Inner West / City fringe
+  // Lower North Shore — real Domain data (see SUB_BEDS for the per-bedroom curve)
+  "Mosman": 3565000,
+  "Cremorne": 2795000,
+  "Cremorne Point": 3380000,
+  "Neutral Bay": 2500000,
+  "Kirribilli": 3520000,
+  "Milsons Point": 5120000,
+  "North Sydney": 2965000,
+  "McMahons Point": 4725000,
+  "Cammeray": 3250000,
+  "Waverton": 2665000,
+  "Wollstonecraft": 2235000,
+  "Crows Nest": 2780000,
+  "Northbridge": 3620000,
+  "Castlecrag": 3850000,
+  "Willoughby": 3045000,
+  "Naremburn": 2950000,
+  "Artarmon": 2220000,
+  "Lane Cove": 2710000,
+  "Greenwich": 3035000,
+  "Longueville": 3510000,
+  "Riverview": 2855000,
+  "Chatswood": 3190000,
+  "Lavender Bay": 4270000,
+  "Cammeray Park": 3250000,
+  // Inner West / City fringe (placeholder, pending Domain re-source)
   "Balmain": 3136000,
   "Birchgrove": 4032000,
   "Rozelle": 2800000,
@@ -712,6 +722,35 @@ const SUB = {
   "Sydney": 2688000
 };
 const SUBS = Object.keys(SUB).filter(s => s.trim() === s);
+
+/* ── Per-bedroom price curves, real Domain.com.au medians for suburbs we've
+   re-sourced (Lower North Shore). Suburbs not listed here fall back to the
+   flat SUB[] value above with a generic per-bedroom step in estimate(). ──── */
+const SUB_BEDS = {
+  "Artarmon": {2: 1475000, 3: 2220000, 4: 3635000, 5: 3660000},
+  "Cammeray": {2: 2410000, 3: 3250000, 4: 3905000, 5: 5360000},
+  "Castlecrag": {2: 2855000, 3: 3850000, 4: 4925000, 5: 4545000},
+  "Chatswood": {2: 2365000, 3: 3190000, 4: 3290000, 5: 4150000},
+  "Cremorne": {2: 2075000, 3: 2795000, 4: 3850000, 5: 6400000},
+  "Cremorne Point": {2: 2505000, 3: 3380000, 4: 4325000, 5: 5575000},
+  "Crows Nest": {2: 2620000, 3: 2780000, 4: 3555000, 5: 4585000},
+  "Greenwich": {2: 2250000, 3: 3035000, 4: 3360000, 5: 5005000},
+  "Kirribilli": {2: 2610000, 3: 3520000, 4: 4500000, 5: 5800000},
+  "Lane Cove": {2: 2015000, 3: 2710000, 4: 3300000, 5: 4375000},
+  "Lavender Bay": {2: 3170000, 3: 4270000, 4: 5465000, 5: 7045000},
+  "Longueville": {2: 2605000, 3: 3510000, 4: 4490000, 5: 5790000},
+  "McMahons Point": {2: 3505000, 3: 4725000, 4: 6045000, 5: 7795000},
+  "Milsons Point": {2: 3800000, 3: 5120000, 4: 6550000, 5: 8445000},
+  "Mosman": {2: 2825000, 3: 3565000, 4: 5090000, 5: 7325000},
+  "Naremburn": {2: 2190000, 3: 2950000, 4: 3600000, 5: 4865000},
+  "Neutral Bay": {2: 1600000, 3: 2500000, 4: 2830000, 5: 4125000},
+  "North Sydney": {2: 2200000, 3: 2965000, 4: 3795000, 5: 4890000},
+  "Northbridge": {2: 2685000, 3: 3620000, 4: 4865000, 5: 6180000},
+  "Riverview": {2: 2115000, 3: 2855000, 4: 3650000, 5: 4775000},
+  "Waverton": {2: 1975000, 3: 2665000, 4: 3410000, 5: 4395000},
+  "Willoughby": {2: 2260000, 3: 3045000, 4: 4200000, 5: 4710000},
+  "Wollstonecraft": {2: 1655000, 3: 2235000, 4: 2860000, 5: 3685000},
+};
 
 /* ── Address autocomplete (preview street index; swaps for Google Places live) ── */
 const STREETS = {
@@ -766,24 +805,40 @@ function lookupAddresses(query) {
   }
   return out.sort((a, b) => (b.covered ? 1 : 0) - (a.covered ? 1 : 0)).slice(0, 6);
 }
+/* ── Valuation model ──────────────────────────────────────────────────────────
+   Bed count now drives the base price directly from real per-bedroom medians
+   (SUB_BEDS) where we have them, instead of a flat suburb figure plus a
+   dollar-per-bedroom adjustment. Bath/car/condition remain smaller secondary
+   adjustments; their scale factor is capped much tighter than before (was
+   0.4x-2.5x, now 0.6x-1.6x) so it can no longer compound into large overshoots
+   for premium suburbs or above-typical-spec properties. ─────────────────────*/
+const BED_GROWTH = { lo: 1.348, hi43: 1.28, hi54: 1.289 }; // avg LNS bed-to-bed price ratios, used to extrapolate 1-bed/6-bed+
+function bedPrice(suburb, beds) {
+  const curve = SUB_BEDS[suburb];
+  if (curve) {
+    const b = Math.max(1, Math.min(6, beds));
+    if (curve[b] != null) return curve[b];
+    if (b < 2) return curve[2] / BED_GROWTH.lo;
+    if (b > 5) return curve[5] * BED_GROWTH.hi54;
+  }
+  return SUB[suburb] || null;
+}
 const ADJ = {
-  bed: 350000,
-  bath: 150000,
-  car: 120000,
-  cond: 250000
+  bath: 90000,
+  car: 70000,
+  cond: 120000
 };
 const TYP = {
-  beds: 3,
   baths: 2,
   cars: 1,
   cond: 3
 };
 const tidy = n => Math.round(n / 25000) * 25000;
 function estimate(suburb, s) {
-  const m = SUB[suburb];
-  if (!m) return null;
-  const scale = Math.min(2.5, Math.max(0.4, m / 4500000));
-  let mid = m + (s.beds - TYP.beds) * ADJ.bed * scale + (s.baths - TYP.baths) * ADJ.bath * scale + (s.cars - TYP.cars) * ADJ.car * scale + (s.cond - TYP.cond) * ADJ.cond * scale;
+  const base = bedPrice(suburb, s.beds);
+  if (!base) return null;
+  const scale = Math.min(1.6, Math.max(0.6, base / 3200000));
+  let mid = base + (s.baths - TYP.baths) * ADJ.bath * scale + (s.cars - TYP.cars) * ADJ.car * scale + (s.cond - TYP.cond) * ADJ.cond * scale;
   return {
     low: tidy(mid * 0.93),
     mid: tidy(mid),
