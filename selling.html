@@ -881,7 +881,23 @@ function bedPrice(suburb, beds) {
     const b = Math.max(1, Math.min(6, beds));
     if (curve[b] != null) return curve[b];
     if (b < 2) return curve[2] / BED_GROWTH.lo;
-    if (b > 5) return curve[5] * BED_GROWTH.hi54;
+    if (b > 5) {
+      // Beyond-sample extrapolation is unreliable for large/rare homes, and a
+      // handful of suburbs (e.g. Dover Heights, Castlecrag) show a REAL 5bd
+      // median that's lower than the 4bd one -- their small top-end sample
+      // tends to include older/subdivided homes rather than premium rebuilds,
+      // so more bedrooms doesn't mean more value there. In that case, don't
+      // extrapolate upward at all -- use the 5bd figure as-is. Where the
+      // curve is normally increasing, still dampen the growth applied beyond
+      // 5 beds (half the usual bed-to-bed ratio) rather than compounding the
+      // full regional ratio, which was overshooting badly on real comps
+      // (verified against 288 Military Rd, Dover Heights: 6bd/4ba listing,
+      // Domain's own AVM $4.3m-$5.48m mid $4.89m, vs $9m+ under the old
+      // open-ended compounding). ─────────────────────────────────────────
+      if (curve[4] != null && curve[5] < curve[4]) return curve[5];
+      const dampedGrowth = 1 + (BED_GROWTH.hi54 - 1) * 0.5;
+      return curve[5] * dampedGrowth;
+    }
   }
   return SUB[suburb] || null;
 }
