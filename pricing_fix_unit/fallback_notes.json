@@ -1,0 +1,90 @@
+{
+  "Lavender Bay": [
+    "North Sydney",
+    "McMahons Point",
+    "Milsons Point",
+    "Kirribilli"
+  ],
+  "Bronte": [
+    "Bondi Beach",
+    "Coogee",
+    "Tamarama"
+  ],
+  "Clovelly": [
+    "Coogee",
+    "Randwick",
+    "Bondi Beach"
+  ],
+  "North Bondi": [
+    "Bondi Beach",
+    "Bondi Junction",
+    "Tamarama"
+  ],
+  "Paddington": [
+    "Woollahra",
+    "Centennial Park",
+    "Darlinghurst"
+  ],
+  "Waverley": [
+    "Bondi Junction",
+    "Woollahra"
+  ],
+  "Northbridge": [
+    "Cammeray",
+    "Willoughby",
+    "Naremburn",
+    "Cremorne"
+  ],
+  "Castlecrag": [
+    "Willoughby",
+    "Naremburn",
+    "Cammeray"
+  ],
+  "Longueville": [
+    "Lane Cove",
+    "Greenwich"
+  ],
+  "Riverview": [
+    "Lane Cove",
+    "Greenwich"
+  ],
+  "Watsons Bay": [
+    "Vaucluse",
+    "Rose Bay",
+    "Double Bay"
+  ],
+  "South Coogee": [
+    "Coogee",
+    "Randwick",
+    "Maroubra"
+  ],
+  "Queens Park": [
+    "Bondi Junction",
+    "Woollahra",
+    "Centennial Park"
+  ],
+  "Malabar": [
+    "Little Bay",
+    "Maroubra"
+  ],
+  "Chifley": [
+    "Little Bay",
+    "Maroubra"
+  ],
+  "Pagewood": [
+    "Eastgardens",
+    "Hillsdale",
+    "Kingsford",
+    "Botany"
+  ],
+  "Daceyville": [
+    "Kingsford",
+    "Eastgardens",
+    "Maroubra"
+  ],
+  "Phillip Bay": [
+    "Little Bay",
+    "Matraville",
+    "Maroubra"
+  ]
+}

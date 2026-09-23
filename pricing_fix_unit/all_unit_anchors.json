@@ -1,0 +1,289 @@
+{
+  "North Sydney": {
+    "unit2": 1350000,
+    "unit3": 2400000
+  },
+  "Cremorne Point": {
+    "unit2": 2100000,
+    "unit3": 2742000
+  },
+  "Kirribilli": {
+    "unit1": 965000,
+    "unit2": 1650000,
+    "unit3": 2855000
+  },
+  "Milsons Point": {
+    "unit1": 957500,
+    "unit2": 2384000,
+    "unit3": 4155000
+  },
+  "McMahons Point": {
+    "unit1": 945000
+  },
+  "Waverton": {
+    "unit2": 1350000
+  },
+  "Wollstonecraft": {
+    "unit2": 1280000,
+    "unit3": 1817500
+  },
+  "Lavender Bay": {
+    "unit2": null
+  },
+  "Point Piper": {
+    "unit3": 5075000
+  },
+  "Bellevue Hill": {
+    "unit3": 3800000
+  },
+  "Vaucluse": {
+    "unit3": 2165000
+  },
+  "Darling Point": {
+    "unit3": 4135000
+  },
+  "Double Bay": {
+    "unit3": 3877500
+  },
+  "Rose Bay": {
+    "unit3": 3275000
+  },
+  "Dover Heights": {
+    "unit2": 1545000
+  },
+  "Bronte": {
+    "unit3": null
+  },
+  "Woollahra": {
+    "unit3": 2700000
+  },
+  "Clovelly": {
+    "unit3": null
+  },
+  "North Bondi": {
+    "unit3": null
+  },
+  "Coogee": {
+    "unit3": 2850000
+  },
+  "Bondi Beach": {
+    "unit3": 3701000
+  },
+  "Bondi": {
+    "unit3": 2205000
+  },
+  "Paddington": {
+    "unit3": null
+  },
+  "Randwick": {
+    "unit3": 1910000
+  },
+  "Waverley": {
+    "unit3": null
+  },
+  "Bondi Junction": {
+    "unit3": 2530000
+  },
+  "Centennial Park": {
+    "unit2": 1110000
+  },
+  "Rushcutters Bay": {
+    "unit2": 1690000
+  },
+  "Elizabeth Bay": {
+    "unit3": 5237500
+  },
+  "Darlinghurst": {
+    "unit1": 797250,
+    "unit2": 1500000,
+    "unit3": 3752500
+  },
+  "Surry Hills": {
+    "unit1": 800000,
+    "unit2": 1450000
+  },
+  "Woolloomooloo": {
+    "unit1": 830000,
+    "unit2": 1600000
+  },
+  "Maroubra": {
+    "unit1": 708750,
+    "unit2": 1167500,
+    "unit3": 1388000
+  },
+  "Kensington": {
+    "unit1": 767000,
+    "unit2": 1052000,
+    "unit3": 1618000
+  },
+  "Kingsford": {
+    "unit1": 650000,
+    "unit2": 1018000,
+    "unit3": 1515000
+  },
+  "Matraville": {
+    "unit2": 910000
+  },
+  "Little Bay": {
+    "unit1": 900000,
+    "unit2": 1720000,
+    "unit3": 2150000
+  },
+  "Eastgardens": {
+    "unit1": 825000,
+    "unit2": 955000,
+    "unit3": 1319800
+  },
+  "Botany": {
+    "unit1": 665000,
+    "unit2": 937500,
+    "unit3": 1265000
+  },
+  "Hillsdale": {
+    "unit1": 650000,
+    "unit2": 768500,
+    "unit3": 865000
+  },
+  "Erskineville": {
+    "unit1": 777500,
+    "unit2": 1238000,
+    "unit3": 1730000
+  },
+  "Redfern": {
+    "unit1": 770000,
+    "unit2": 1200000,
+    "unit3": 2002500
+  },
+  "Alexandria": {
+    "unit1": 703500,
+    "unit2": 1140000,
+    "unit3": 1800000
+  },
+  "Waterloo": {
+    "unit1": 705500,
+    "unit2": 1020000,
+    "unit3": 1450000
+  },
+  "Zetland": {
+    "unit1": 730000,
+    "unit2": 1076250,
+    "unit3": 1500000
+  },
+  "Pyrmont": {
+    "unit1": 750000,
+    "unit2": 1245000,
+    "unit3": 3300000
+  },
+  "Ultimo": {
+    "unit1": 605000,
+    "unit2": 1046000,
+    "unit3": 1510000
+  },
+  "Sydney": {
+    "unit1": 750000,
+    "unit2": 1290000,
+    "unit3": 2886500
+  },
+  "Balmain": {
+    "unit1": 925000,
+    "unit2": 1472000,
+    "unit3": 1910000
+  },
+  "Birchgrove": {
+    "unit2": 1405000
+  },
+  "Rozelle": {
+    "unit1": 922500,
+    "unit2": 1842500
+  },
+  "Glebe": {
+    "unit1": 730000,
+    "unit2": 1337500
+  },
+  "Annandale": {
+    "unit1": 720000,
+    "unit2": 1062500
+  },
+  "Leichhardt": {
+    "unit1": 740000,
+    "unit2": 980000
+  },
+  "Newtown": {
+    "unit1": 720000,
+    "unit2": 1200000
+  },
+  "Mosman": {
+    "unit1": 820000,
+    "unit2": 1340000,
+    "unit3": 2650000
+  },
+  "Cremorne": {
+    "unit1": 835000,
+    "unit2": 1397500,
+    "unit3": 2055000
+  },
+  "Neutral Bay": {
+    "unit1": 785000,
+    "unit2": 1301000,
+    "unit3": 2150000
+  },
+  "Cammeray": {
+    "unit1": 840000,
+    "unit2": 1305000,
+    "unit3": 2327500
+  },
+  "Crows Nest": {
+    "unit1": 757500,
+    "unit2": 1270000,
+    "unit3": 1690000
+  },
+  "Northbridge": {},
+  "Castlecrag": {},
+  "Willoughby": {
+    "unit1": 795000,
+    "unit2": 1380000,
+    "unit3": 2100000
+  },
+  "Naremburn": {
+    "unit1": 851000,
+    "unit2": 1350000
+  },
+  "Artarmon": {
+    "unit1": 796000,
+    "unit2": 1060000,
+    "unit3": 1462500
+  },
+  "Lane Cove": {
+    "unit1": 740000,
+    "unit2": 950000,
+    "unit3": 1760000
+  },
+  "Greenwich": {
+    "unit1": 772500,
+    "unit2": 941000,
+    "unit3": 1755000
+  },
+  "Longueville": {},
+  "Riverview": {},
+  "Chatswood": {
+    "unit1": 810000,
+    "unit2": 1180000,
+    "unit3": 1800000
+  },
+  "Watsons Bay": {},
+  "Tamarama": {
+    "unit1": 1500000
+  },
+  "South Coogee": {},
+  "Queens Park": {},
+  "Malabar": {},
+  "Chifley": {},
+  "Pagewood": {},
+  "Potts Point": {
+    "unit1": 879000,
+    "unit2": 1610000,
+    "unit3": 5000000
+  },
+  "Daceyville": {},
+  "Phillip Bay": {}
+}
