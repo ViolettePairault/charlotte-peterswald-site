@@ -604,10 +604,10 @@ const {
 } = React;
 
 /* ════════════════════════════════════════════════════════════════════════════
-   Combined Selling Tool — Charlotte Peterswald / Christie's International Real Estate
+   Combined Selling Tool - Charlotte Peterswald / Christie's International Real Estate
 
    LEFT:  "What's your home worth?" appraisal (5 taps + phone gate → estimate)
-   RIGHT: "Cost of selling" — auto-fills from the appraisal estimate (adjustable),
+   RIGHT: "Cost of selling" - auto-fills from the appraisal estimate (adjustable),
           updates live, shows total cost + net proceeds. No second lead capture.
 
    Desktop: two columns side by side.
@@ -618,7 +618,7 @@ const INK = "#1A1A1A";
 const LINE = "#E3E1DA";
 const WASH = "#F5F3EE";
 const FONT = "'Inter', system-ui, sans-serif";
-const fmt = n => n == null || isNaN(n) || !isFinite(n) ? "—" : "$" + Math.abs(Math.round(n)).toLocaleString();
+const fmt = n => n == null || isNaN(n) || !isFinite(n) ? "-" : "$" + Math.abs(Math.round(n)).toLocaleString();
 
 /* ── Appraisal data: Lower North Shore, Eastern Suburbs and Inner West house
    medians sourced from Domain.com.au "Market trends" (sold last 12 months),
@@ -640,7 +640,7 @@ const fmt = n => n == null || isNaN(n) || !isFinite(n) ? "—" : "$" + Math.abs(
    pricing_fix/curves_final.json, curves_east_final.json, curves_east2_final.json
    and curves_innerwest_final.json for the full per-suburb methodology notes. ── */
 const SUB = {
-  // Eastern Suburbs — real Domain data (see SUB_BEDS), except Point Piper (placeholder, no reliable sample)
+  // Eastern Suburbs - real Domain data (see SUB_BEDS), except Point Piper (placeholder, no reliable sample)
   "Point Piper": 12320000,
   "Bellevue Hill": 6860000,
   "Vaucluse": 4525000,
@@ -685,7 +685,7 @@ const SUB = {
   "Phillip Bay": 2225000,
   "Bronte Beach": 5936000,
   "Waverley Park": 3808000,
-  // Lower North Shore — real Domain data (see SUB_BEDS for the per-bedroom curve)
+  // Lower North Shore - real Domain data (see SUB_BEDS for the per-bedroom curve)
   "Mosman": 3565000,
   "Cremorne": 2795000,
   "Cremorne Point": 3380000,
@@ -710,7 +710,7 @@ const SUB = {
   "Chatswood": 3190000,
   "Lavender Bay": 4270000,
   "Cammeray Park": 3250000,
-  // Inner West — real Domain data (see SUB_BEDS for the per-bedroom curve)
+  // Inner West - real Domain data (see SUB_BEDS for the per-bedroom curve)
   "Balmain": 2850000,
   "Birchgrove": 2800000,
   "Rozelle": 2370000,
@@ -884,7 +884,7 @@ const BED_GROWTH = { lo: 1.348, hi43: 1.28, hi54: 1.289 }; // avg LNS bed-to-bed
    curves, averaged. 4/5/6-bed figures are extrapolated from each suburb's real
    3-bed unit median using a damped regional 2-to-3-bed unit growth ratio (half,
    then further tapered) since genuine large-format apartment sales are too rare
-   almost everywhere to sample directly — treat 4bd+ unit estimates as indicative
+   almost everywhere to sample directly - treat 4bd+ unit estimates as indicative
    only, more so than the house curve's equivalent extrapolation.               */
 const UNIT_BEDS = {
   "Alexandria": {1: 705000, 2: 1140000, 3: 1800000, 4: 2380000, 5: 2920000, 6: 3395000},
@@ -977,7 +977,7 @@ const UNIT_BEDS = {
 // figure, we apply one documented discount to the real House curve. Semis in
 // these inner/eastern-ring suburbs (where terraces are a dominant, desirable
 // typology, not a cheaper alternative like in outer-suburb project-home areas)
-// typically track close to but modestly below an equivalent detached house —
+// typically track close to but modestly below an equivalent detached house -
 // this is an indicative regional ratio, not suburb-specific sourced data.
 const SEMI_RATIO = 0.90;
 
@@ -1285,7 +1285,7 @@ function CombinedTool({
     type: ptype
   });
 
-  // cost state — price auto-syncs from estimate but user can override
+  // cost state - price auto-syncs from estimate but user can override
 useEffect(() => {
      if (!startedUnlockedRef.current) return;
      const NOTIFY_KEY = "cp_notified_sale";
@@ -1714,7 +1714,7 @@ var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isInterse
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 </script><script>
 /* ════════════════════════════════════════════════════════════════════════
-   FORM DELIVERY — paste your Formspree endpoint below and every form on the
+   FORM DELIVERY - paste your Formspree endpoint below and every form on the
    site (appraisal, rent, investor, contact, newsletter) will email through.
    Get it free at formspree.io. It looks like: https://formspree.io/f/xxxxxxx
    Leave it empty and forms will still validate but nothing is sent.

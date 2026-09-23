@@ -585,15 +585,15 @@ const {
    useRef
 } = React;
 
-/* Investor & Developer Tool — Buying page. Income/Yield + Residual Land,
+/* Investor & Developer Tool - Buying page. Income/Yield + Residual Land,
    formulas preserved from the original, restyled to the site. */
 
 const INK = "#1A1A1A";
 const LINE = "#E3E1DA";
 const FONT = "'Inter', system-ui, sans-serif";
-const fmt = n => n == null || isNaN(n) || !isFinite(n) ? "—" : (n < 0 ? "-$" : "$") + Math.abs(Math.round(n)).toLocaleString();
+const fmt = n => n == null || isNaN(n) || !isFinite(n) ? "-" : (n < 0 ? "-$" : "$") + Math.abs(Math.round(n)).toLocaleString();
 
-/* Shared lead unlock — details given in ANY tool unlock all tools for the visit. */
+/* Shared lead unlock - details given in ANY tool unlock all tools for the visit. */
 function readSharedLead() {
   try {
     const raw = sessionStorage.getItem("cp_lead");
@@ -1254,12 +1254,12 @@ if (_r) {
   }
 }
 }catch(e){console.error("INVEST init",e)}})();</script><script>/* ════════════════════════════════════════════════════════════════════════════
-   LISTINGS MODULE — Charlotte Peterswald / Christie's International Real Estate
+   LISTINGS MODULE - Charlotte Peterswald / Christie's International Real Estate
 
    This renders property cards on the Buying page and Home "Featured" section.
    Right now it shows placeholder listings. To go live with real listings from
    AgentBox (Reapit Sales), a developer only needs to implement ONE function:
-   fetchListings() — see the clearly marked block below.
+   fetchListings() - see the clearly marked block below.
 
    The rest of this file (rendering, field mapping, fallback) is already done.
    ════════════════════════════════════════════════════════════════════════════ */
@@ -1267,7 +1267,7 @@ if (_r) {
 (function () {
 
   /* ──────────────────────────────────────────────────────────────────────────
-     STEP 1 — THE ONLY PART A DEVELOPER NEEDS TO WRITE.
+     STEP 1 - THE ONLY PART A DEVELOPER NEEDS TO WRITE.
 
      Replace the body of fetchListings() with a call to the AgentBox API.
      It must return a Promise resolving to an array of listing objects in the
@@ -1312,7 +1312,7 @@ if (_r) {
   }
 
   /* ──────────────────────────────────────────────────────────────────────────
-     STEP 2 — everything below is DONE. No changes needed to go live.
+     STEP 2 - everything below is DONE. No changes needed to go live.
      ────────────────────────────────────────────────────────────────────────── */
 
   // Placeholder listings shown until the feed is connected (same shape as live data).
@@ -1377,7 +1377,7 @@ var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isInterse
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 </script><script>
 /* ════════════════════════════════════════════════════════════════════════
-   FORM DELIVERY — paste your Formspree endpoint below and every form on the
+   FORM DELIVERY - paste your Formspree endpoint below and every form on the
    site (appraisal, rent, investor, contact, newsletter) will email through.
    Get it free at formspree.io. It looks like: https://formspree.io/f/xxxxxxx
    Leave it empty and forms will still validate but nothing is sent.
